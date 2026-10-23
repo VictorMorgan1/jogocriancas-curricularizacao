@@ -1,0 +1,398 @@
+/* ============================================
+   Aventura do Saber - estilos do jogo
+   ============================================ */
+
+/* Cores que vamos usar no site (variáveis CSS) */
+:root {
+  --texto: #262b4d;
+  --azul: #4c97ff;
+  --verde: #69c96f;
+  --amarelo: #ffd93d;
+  --laranja: #ff9f43;
+  --vermelho: #e02424;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', Arial, sans-serif;
+  color: var(--texto);
+  background: linear-gradient(#dfe9ff, #fdf6ee);
+  min-height: 100vh;
+}
+
+/* ---------- TELAS ---------- */
+/* Todas as telas ficam escondidas, só a que tem a classe "ativa" aparece */
+.tela {
+  display: none;
+  max-width: 860px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px 16px 32px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tela.ativa {
+  display: flex;
+}
+
+/* Cores de fundo diferentes para cada tipo de tela */
+.fundo-verde   { background: linear-gradient(#e4f9ee, #fffbdc); }
+.fundo-laranja { background: linear-gradient(#fff0e0, #fffbdc); }
+
+/* ---------- TEXTOS ---------- */
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 14px 0 10px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 16px 0 10px;
+}
+
+.titulo-verde   { color: #43a051; }
+.titulo-laranja { color: #e07b12; }
+
+/* ---------- LOGO E ETIQUETAS ---------- */
+.logo {
+  width: 56px;
+  height: 56px;
+  background: var(--amarelo);
+  border-radius: 16px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etiqueta {
+  background: #ff6b6b;
+  color: white;
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.etiqueta.clara {
+  background: #fff1c9;
+  color: #c98a00;
+  font-size: 16px;
+  text-transform: none;
+  padding: 8px 18px;
+}
+
+/* ---------- MASCOTE (a coruja) ---------- */
+.mascote {
+  width: 240px;
+  height: 240px;
+  background: white;
+  border: 8px solid var(--azul);
+  border-radius: 50%;
+  font-size: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0;
+  box-shadow: 0 12px 30px rgba(76, 151, 255, 0.25);
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+.borda-verde   { border-color: var(--verde); }
+.borda-laranja { border-color: var(--laranja); }
+
+/* Animação simples: a coruja sobe e desce */
+@keyframes flutuar {
+  50% { transform: translateY(-8px); }
+}
+
+/* ---------- BOTÕES ---------- */
+.botao {
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 99px;
+  padding: 16px 40px;
+  margin-top: 20px;
+  cursor: pointer;
+  color: var(--texto);
+}
+
+.botao:active {
+  transform: translateY(4px);
+}
+
+.botao.verde {
+  background: var(--verde);
+  color: white;
+  box-shadow: 0 6px 0 #4aa851;
+}
+
+.botao.amarelo {
+  background: var(--amarelo);
+  box-shadow: 0 6px 0 #e8b800;
+}
+
+.botao.laranja {
+  background: var(--laranja);
+  color: white;
+  box-shadow: 0 6px 0 #d97d1f;
+}
+
+.link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  color: var(--texto);
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* ---------- TELA DE PERGUNTA ---------- */
+.topo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.mini-coruja {
+  font-size: 26px;
+}
+
+.barra {
+  flex: 1;
+  height: 12px;
+  background: #cfe0fb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#barra-preenchida {
+  height: 100%;
+  width: 0;
+  background: var(--azul);
+  border-radius: 10px;
+}
+
+.cartao-pergunta {
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(76, 151, 255, 0.15);
+}
+
+.imagem-pergunta {
+  background: linear-gradient(135deg, #bfe4ff, #fff3c4);
+  border-radius: 16px;
+  min-height: 130px;
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.cartao-pergunta h2 {
+  font-size: 28px;
+  margin: 16px 0 8px;
+}
+
+.botao-ouvir {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  border-radius: 99px;
+  padding: 8px 16px;
+  background: #eaf2ff;
+  color: #2a62c4;
+  cursor: pointer;
+}
+
+/* ---------- ALTERNATIVAS ---------- */
+.alternativas {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.alternativa {
+  font-family: inherit;
+  color: var(--texto);
+  background: white;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  padding: 12px 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.alternativa:hover {
+  border-color: var(--azul);
+}
+
+.alternativa .emoji {
+  font-size: 50px;
+}
+
+.alternativa .letra-texto {
+  width: 100%;
+  background: #f0f2f6;
+  border-radius: 12px;
+  padding: 10px 4px;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* ---------- TELA DE PROGRESSO ---------- */
+.cartao-estrelas {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  max-width: 620px;
+  width: 100%;
+  margin: 20px 0;
+  box-shadow: 0 8px 24px rgba(76, 151, 255, 0.15);
+}
+
+.lista-estrelas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.estrela {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #eef0f4;
+  color: #b5bac7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.estrela.dourada {
+  background: var(--amarelo);
+  box-shadow: 0 3px 0 #e8b800;
+}
+
+.barra.grande {
+  height: 14px;
+  margin: 16px 0 8px;
+}
+
+#barra-progresso {
+  height: 100%;
+  background: var(--azul);
+}
+
+/* ---------- GABARITO ---------- */
+.tela-gabarito {
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+}
+
+.botao-voltar {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  background: white;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lista-gabarito {
+  background: white;
+  border-radius: 24px;
+  padding: 12px;
+  margin-top: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.linha-gabarito {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Linhas pares com fundo cinza claro */
+.linha-gabarito:nth-child(even) {
+  background: #f3f4f7;
+}
+
+.linha-gabarito .numero {
+  min-width: 28px;
+  opacity: 0.6;
+}
+
+.linha-gabarito .pergunta {
+  flex: 1;
+}
+
+.linha-gabarito .resposta {
+  background: #dff6e3;
+  color: #2e9d3b;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.x-vermelho {
+  color: var(--vermelho);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* ---------- CELULAR ---------- */
+@media (max-width: 520px) {
+  h1 { font-size: 34px; }
+  h2 { font-size: 26px; }
+  .mascote { width: 190px; height: 190px; font-size: 80px; }
+  .alternativas { gap: 8px; }
+  .alternativa .emoji { font-size: 36px; }
+  .alternativa .letra-texto { font-size: 13px; }
+  .botao { font-size: 18px; padding: 14px 28px; }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aventura do Saber</title>
+
+  <!-- Fonte do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Nosso CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== TELA 1: INÍCIO ========== -->
+  <section id="tela-inicio" class="tela ativa">
+    <div class="logo">🎓</div>
+    <h1>Aventura do Saber</h1>
+    <span class="etiqueta">Pré-escola II | 5 a 6 anos</span>
+    <div class="mascote">🦉</div>
+    <button class="botao verde" onclick="iniciarJogo()">▶ Jogar</button>
+  </section>
+
+  <!-- ========== TELA 2: PERGUNTA ========== -->
+  <section id="tela-pergunta" class="tela">
+    <div class="topo">
+      <span id="contador">Pergunta 1 de 30</span>
+      <div class="barra"><div id="barra-preenchida"></div></div>
+      <span class="mini-coruja">🦉</span>
+    </div>
+
+    <div class="cartao-pergunta">
+      <div id="imagem-pergunta" class="imagem-pergunta"></div>
+      <h2 id="texto-pergunta"></h2>
+      <button class="botao-ouvir" onclick="lerPergunta()">🔊 Ouvir pergunta</button>
+    </div>
+
+    <!-- As 3 alternativas são criadas pelo JavaScript aqui dentro -->
+    <div id="alternativas" class="alternativas"></div>
+  </section>
+
+  <!-- ========== TELA 3: ACERTOU ========== -->
+  <section id="tela-acerto" class="tela fundo-verde">
+    <div class="mascote borda-verde">🦉🎉</div>
+    <h2 class="titulo-verde">Parabéns! Você acertou!</h2>
+    <span class="etiqueta clara">⭐ Continue assim, campeão!</span>
+    <button class="botao amarelo" onclick="proximaPergunta()">Próxima »</button>
+  </section>
+
+  <!-- ========== TELA 4: ERROU ========== -->
+  <section id="tela-erro" class="tela fundo-laranja">
+    <div class="mascote borda-laranja">🦉💛</div>
+    <h2 class="titulo-laranja">Ops! Você errou!</h2>
+    <span class="etiqueta clara">💛 Errar faz parte de aprender. Vamos para a próxima!</span>
+    <button class="botao laranja" onclick="proximaPergunta()">Próxima »</button>
+  </section>
+
+  <!-- ========== TELA 5: PROGRESSO ========== -->
+  <section id="tela-progresso" class="tela">
+    <h2>Seu Progresso de Estrelas!</h2>
+    <p>Cada estrela dourada é um passo na sua jornada do saber!</p>
+
+    <div class="cartao-estrelas">
+      <div id="lista-estrelas" class="lista-estrelas"></div>
+      <div class="barra grande"><div id="barra-progresso"></div></div>
+      <strong id="texto-progresso"></strong>
+    </div>
+
+    <button class="botao verde" onclick="continuarJogando()">Continuar jogando »</button>
+  </section>
+
+  <!-- ========== TELA 6: FINAL ========== -->
+  <section id="tela-final" class="tela fundo-verde">
+    <div class="mascote borda-verde">🦉🏆</div>
+    <h2 class="titulo-verde">Parabéns! Você completou a aventura!</h2>
+    <span id="texto-final" class="etiqueta clara"></span>
+    <button class="botao amarelo" onclick="iniciarJogo()">Jogar novamente</button>
+    <button class="link" onclick="mostrarTela('tela-gabarito'); montarGabarito();">Ver Gabarito Completo</button>
+  </section>
+
+  <!-- ========== TELA 7: GABARITO ========== -->
+  <section id="tela-gabarito" class="tela tela-gabarito">
+    <button class="botao-voltar" onclick="mostrarTela('tela-final')">
+      <!-- Seta desenhada com SVG -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#262b4d"
+           stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M11 5l-7 7 7 7"></path>
+      </svg>
+      Voltar
+    </button>
+
+    <h2>Gabarito — Aventura do Saber</h2>
+    <p>✅ acertou &nbsp;·&nbsp; <span class="x-vermelho">✖</span> errou</p>
+
+    <div id="lista-gabarito" class="lista-gabarito"></div>
+  </section>
+
+  <!-- Primeiro as perguntas, depois a lógica do jogo -->
+  <script src="perguntas.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
